@@ -16,8 +16,10 @@ class Authenticate
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
+    { echo "-".$guard; 
         if (Auth::guard($guard)->guest()) {
+        	print_r(Auth::user()); 
+        	die ("scheisse");
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {

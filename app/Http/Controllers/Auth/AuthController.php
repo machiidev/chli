@@ -4,9 +4,15 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\Guard;
+//use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Auth\Session;
 
 class AuthController extends Controller
 {
@@ -28,17 +34,62 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-
+    //protected $redirectTo = 'dashboard';
+    //protected $loginPath = 'login';
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Guard $auth)
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->auth = $auth;
+        //$this->registrar = $registrar;
+
+        $this->middleware('guest', ['except' => 'getLogout']);
     }
+    
+   /* public function authenticate(Request $request)
+    {  
+        if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
+        {   die("erfolgreih");
+            return redirect()->intended('dashboard');
+        }
+    }
+    */
+    
+     public function postLogin(Request $request)
+     {
+         //pass through validation rules
+         $this->validate($request, ['email' => 'required', 'password' => 'required']);
+
+         $credentials = [
+             'email' => trim($request->get('email')),
+             'password' => trim($request->get('password'))
+         ];
+
+
+
+         //log in the user
+         if (Auth::attempt($credentials)) {
+         	  $request->session()->put('key', 'value');
+         	 
+             return redirect()->intended('/dashboard');
+         }
+
+         //show error if invalid data entered
+         return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
+     }
+    
+    public function getLogin() {
+		//echo "test";
+		 return view('auth.login');
+	}
+
+   public function getLogout() {
+		
+		 return $this->logout();
+	}
 
     /**
      * Get a validator for an incoming registration request.
@@ -65,6 +116,7 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
+            'login' => $data['login'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
