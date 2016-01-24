@@ -12,9 +12,10 @@
 */
 
 
-
+// Basisroutes - Homepage, Login
 
 Route::group(['middleware' => 'web'], function () {
+	
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
@@ -22,4 +23,36 @@ Route::group(['middleware' => 'web'], function () {
     {
         return View::make('welcome');
     });
-});
+
+
+
+	// Benutzerverwaltung Routes
+	Route::get('/useradmin/groups', [
+	    'middleware' => 'auth',
+	    'uses' => 'Useradmin\GroupController@index'
+	]);
+	Route::get('/useradmin/group/create', [
+	    'middleware' => 'auth',
+	    'uses' => 'Useradmin\GroupController@create'
+	]);
+
+	Route::get('/useradmin/groups/ajax', [
+
+	    'uses' => 'Useradmin\GroupController@ajax'
+	]);
+
+	Route::post('/useradmin/groups/axsave', [
+
+	    'uses' => 'Useradmin\GroupController@axsave'
+	]);
+	Route::get('/useradmin/groups/axsave', [
+
+	    'uses' => 'Useradmin\GroupController@axsave'
+	]);
+
+	Route::get('/useradmin/groups/axmanager', [
+
+	    'uses' => 'Useradmin\GroupController@axmanager'
+	]);
+
+}); // EO  Middleware Web
