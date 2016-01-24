@@ -34,7 +34,7 @@
           
           <ul class="sidebar-menu">
           	<li class="header">MAIN NAVIGATION</li>
-          	<li class="active treeview">
+          	<li class="treeview">
               <a href="/">
                 <i class="fa fa-dashboard"></i> <span>Start</span> 
                 <span class="label label-danger pull-right">4</span>
@@ -42,7 +42,7 @@
             </li>
           	@if (Auth::check())
             <li class="header">ADMIN NAVIGATION</li>
-            <li class="active treeview">
+            <li class="treeview">
               <a href="/dashboard">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> 
                 <span class="label label-danger pull-right">3</span>

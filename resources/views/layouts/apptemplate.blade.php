@@ -172,6 +172,21 @@
     <!-- AdminLTE for demo purposes 
     <script src="assets/dist/js/demo.js"></script>-->
     
+     <script>
+          $(document).ready(function() {
+              var rawhref = window.location.href; //raw current url
+              var newpage = ((window.location.href.match(/([^\/]*)\/?$/)[1]).substring(0)); //take only the last part of the url, and chop off the first char (substring), since the contains method below is case-sensitive. Don't need to do this if they match exactly.
+              newpage = window.location.pathname;
+
+              $('a[href="' + newpage + '"]').parents('li').addClass('active');
+
+              $('a[href="' + newpage + '"]').parents('ul').addClass('menu-open ');
+
+              $('a[href="' + newpage + '"]').parents('ul').addClass('active ');
+
+          });
+      </script>
+    
     <!-- Detail views inject scripts here -->
     @yield('scripts')
     
