@@ -26,6 +26,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    @yield('head')
+    
   </head>
   <body class="hold-transition skin-blue-light sidebar-mini">
     <div class="wrapper">
@@ -123,8 +125,9 @@
       </header>
       <!-- Left side column. contains the logo and sidebar -->
 		@include('include/mainmenu')
-
-<div class="content-wrapper">
+		
+ <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         @include('include/contentheader')
 
@@ -156,7 +159,7 @@
     <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- FastClick 
     <script src="assets/plugins/fastclick/fastclick.min.js"></script>
-    <!-- AdminLTE App -->-->
+    <!-- AdminLTE App -->
     <script src="{{ URL::asset('assets/dist/js/app.min.js') }}"></script>
     <!-- Sparkline -->
     <script src="{{ URL::asset('assets/plugins/sparkline/jquery.sparkline.min.js') }}"></script>

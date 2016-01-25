@@ -2,12 +2,19 @@
 {{--*/ $pagesubtitle='Administrate your user groups' /*--}}
 @extends('layouts.apptemplate')
 
-@section('content')
-<div class='row'>
+@section('head')
+<link rel="stylesheet" href="{{ URL::asset('assets/plugins/select2/select2.css') }}">
+</link>
+@endsection
 
+
+@section('content')
+<!-- layout row 1 
+<div class='row'>-->
+    <!-- main part -->
 	<div class='col-md-9'>
 
-
+		<!-- table box -->
 		<div class="box box-primary ">
 			<!--
                         <div clabox-header">
@@ -15,6 +22,8 @@
                                 Data Table With Full Features
                             </h3>
 			</div>--><!-- /.box-header -->
+			
+			<!-- box-body  -->
 			<div class="box-body slimScrollDiv">
 				<table id="mydatatbl" class="table table-bordered table-striped hover compact">
 					<thead>
@@ -52,8 +61,8 @@
 
 	<div class='col-md-3 '> <!-- rechte spalte -->
 		<div class="row">
-			<!-- Box -->
-
+			
+				<!-- Box -->
 				<div class="box box-primary affix" data-spy="affix" >
                             <div class="box-header with-border">
                                 <h3 class="box-title">
@@ -140,14 +149,14 @@
 
 
 
-</div><!-- /.row -->
+<!--</div> /.row -->
 
 <div id="fehler" class="modal modal-danger">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Modal Default</h4>
+				<h4 class="modal-title">Fehler</h4>
 			</div>
 			<div class="modal-body">
 				<p id="fehlermeldung"></p>
@@ -313,7 +322,7 @@
 
 			$( "#frmGroup" ).submit(function( event )
 				{
-					alert("submit");
+					//alert("submit");
 
 					$.ajax(
 						{
@@ -325,7 +334,7 @@
 							beforeSend: function()
 							{
 								//$("#validation-errors").hide().empty();
-								alert($('#frmGroup').serialize())
+								//alert($('#frmGroup').serialize())
 							},
 							success: function(data, textStatus, jqXHR)
 							{
