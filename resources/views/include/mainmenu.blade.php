@@ -55,7 +55,7 @@
                 <span class="label label-primary pull-right">4</span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> @lang('useradmin.users')</a></li>
+                <li><a href="/useradmin/users"><i class="fa fa-circle-o"></i> @lang('useradmin.users')</a></li>
                 <li><a href="/useradmin/groups"><i class="fa fa-circle-o"></i> @lang('useradmin.groups')</a></li>
                 <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> @lang('useradmin.roles')</a></li>
                 <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> free</a></li>

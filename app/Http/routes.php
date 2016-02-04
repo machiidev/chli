@@ -31,6 +31,12 @@ Route::group(['middleware' => 'web'], function () {
 	    'middleware' => 'auth',
 	    'uses' => 'Useradmin\GroupController@index'
 	]);
+	
+	Route::get('/useradmin/users', [
+	    'middleware' => 'auth',
+	    'uses' => 'Useradmin\UserController@index'
+	]);	
+	
 	Route::get('/useradmin/group/create', [
 	    'middleware' => 'auth',
 	    'uses' => 'Useradmin\GroupController@create'
@@ -40,6 +46,12 @@ Route::group(['middleware' => 'web'], function () {
 
 	    'uses' => 'Useradmin\GroupController@ajax'
 	]);
+
+	Route::get('/useradmin/users/ajax', [
+
+	    'uses' => 'Useradmin\UserController@ajax'
+	]);
+
 
 	Route::post('/useradmin/groups/axsave', [
 
@@ -53,6 +65,16 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/useradmin/groups/axmanager', [
 
 	    'uses' => 'Useradmin\GroupController@axmanager'
+	]);
+
+	Route::get('/useradmin/users/axsave', [
+
+	    'uses' => 'Useradmin\UserController@axsave'
+	]);
+
+	Route::post('/useradmin/users/axsave', [
+
+	    'uses' => 'Useradmin\UserController@axsave'
 	]);
 
 }); // EO  Middleware Web
