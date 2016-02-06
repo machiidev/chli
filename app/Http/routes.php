@@ -16,65 +16,26 @@
 
 Route::group(['middleware' => 'web'], function () {
 	
+	// All Auth Routes for Login, etc
     Route::auth();
 
+	// Homepage Route
     Route::get('/home', 'HomeController@index');
 	Route::get('/', function()
     {
         return View::make('welcome');
     });
 
-
-
 	// Benutzerverwaltung Routes
-	Route::get('/useradmin/groups', [
-	    'middleware' => 'auth',
-	    'uses' => 'Useradmin\GroupController@index'
-	]);
-	
-	Route::get('/useradmin/users', [
-	    'middleware' => 'auth',
-	    'uses' => 'Useradmin\UserController@index'
-	]);	
-	
-	Route::get('/useradmin/group/create', [
-	    'middleware' => 'auth',
-	    'uses' => 'Useradmin\GroupController@create'
-	]);
-
-	Route::get('/useradmin/groups/ajax', [
-
-	    'uses' => 'Useradmin\GroupController@ajax'
-	]);
-
-	Route::get('/useradmin/users/ajax', [
-
-	    'uses' => 'Useradmin\UserController@ajax'
-	]);
-
-
-	Route::post('/useradmin/groups/axsave', [
-
-	    'uses' => 'Useradmin\GroupController@axsave'
-	]);
-	Route::get('/useradmin/groups/axsave', [
-
-	    'uses' => 'Useradmin\GroupController@axsave'
-	]);
-
-	Route::get('/useradmin/groups/axmanager', [
-
-	    'uses' => 'Useradmin\GroupController@axmanager'
-	]);
-
-	Route::get('/useradmin/users/axsave', [
-
-	    'uses' => 'Useradmin\UserController@axsave'
-	]);
-
-	Route::post('/useradmin/users/axsave', [
-
-	    'uses' => 'Useradmin\UserController@axsave'
-	]);
+	Route::get ('/useradmin/groups', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@index']);
+		Route::get ('/useradmin/users', ['middleware' => 'auth', 'uses' => 'Useradmin\UserController@index']);		
+	Route::get ('/useradmin/group/create', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@create']);
+	Route::post('/useradmin/groups/axsave', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@axsave']);
+	Route::get ('/useradmin/groups/axsave', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@axsave']);
+	Route::get ('/useradmin/groups/axmanager', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@axmanager']);
+	Route::get ('/useradmin/groups/ajax', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@ajax']);
+	Route::get ('/useradmin/users/ajax', ['middleware' => 'auth', 'uses' => 'Useradmin\UserController@ajax']);
+	Route::get ('/useradmin/users/axsave', ['middleware' => 'auth', 'uses' => 'Useradmin\UserController@axsave']);
+	Route::post('/useradmin/users/axsave', ['middleware' => 'auth', 'uses' => 'Useradmin\UserController@axsave']);
 
 }); // EO  Middleware Web

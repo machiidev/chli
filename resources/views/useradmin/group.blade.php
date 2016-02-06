@@ -77,26 +77,26 @@
                                         <label>
                                             ID
                                         </label>
-                                        <input type="text" class="form-control" name="fid" id="fid" placeholder="Neu" readonly>
+                                        <input type="text" class="form-control" name="id" id="id" placeholder="Neu" readonly>
                                     </div>
                                     <div class="form-group has-primary">
                                         <label>
                                             Name
                                         </label>
-                                        <input required type="text" class="form-control" name="fname" id="fname" placeholder="Gruppename">
+                                        <input required type="text" class="form-control" name="name" id="name" placeholder="Gruppename">
                                     </div>
                                     <div class="form-group">
                                         <label>
                                             Anmerkung
                                         </label>
-                                        <input type="text"  minlength="10" class="form-control" name="fremark" id="fremark" placeholder="Beschreibung">
+                                        <input type="text"  minlength="10" class="form-control" name="remark" id="remark" placeholder="Beschreibung">
                                     </div>
                                     <div class="form-group">
                                         <label>
                                             Email address
                                         </label>
                                         <div class="controls">
-                                            <input required type="email" class="form-control" name="femail" id="femail" placeholder="Gruppen Email"
+                                            <input required type="email" class="form-control" name="email" id="email" placeholder="Gruppen Email"
                                             data-validation-matches-match="email" data-validation-matches-message="Must match email address entered above" >
 
                                         </div>
@@ -105,7 +105,7 @@
                                         <label>
                                             Manager
                                         </label>
-                                        <select id="fmanager" name="fmanager" class="form-control select2" placeholder="Manager auswählen" style="width: 100%;">
+                                        <select id="manager" name="manager" class="form-control select2" placeholder="Manager auswählen" style="width: 100%;">
 
 
                                         </select>
@@ -200,7 +200,7 @@
 	{
 
 
-		var $element = $('#fmanager').select2(); // the select element you are working with
+		var $element = $('#manager').select2(); // the select element you are working with
 
 		var $request = $.ajax(
 			{
@@ -284,12 +284,12 @@
 					{
 						$(this).removeClass('active');
 
-						$('#fid').val( "");
-						$('#fname').val("");
-						$('#fremark').val( "");
-						$('#femail').val( "");
+						$('#id').val( "");
+						$('#name').val("");
+						$('#remark').val( "");
+						$('#email').val( "");
 
-						$('#fmanager').val("0").trigger('change');
+						$('#manager').val("0").trigger('change');
 						$('#fbtsave').html('Anlegen');
 						$('#fbtdelete').hide();
 					}
@@ -298,11 +298,11 @@
 						table.$('tr.active').removeClass('active');
 						$(this).addClass('active');
 
-						$('#fid').val( table.cell('.active', 0).data());
-						$('#fname').val( table.cell('.active', 1).data());
-						$('#fremark').val( table.cell('.active', 2).data());
-						$('#femail').val( table.cell('.active', 3).data());
-						$('#fmanager').val(table.cell('.active', 4).data()).trigger('change');
+						$('#id').val( table.cell('.active', 0).data());
+						$('#name').val( table.cell('.active', 1).data());
+						$('#remark').val( table.cell('.active', 2).data());
+						$('#email').val( table.cell('.active', 3).data());
+						$('#manager').val(table.cell('.active', 4).data()).trigger('change');
 						$('#fbtsave').html( 'Speichern');
 						$('#fbtdelete').show();
 					}
@@ -361,7 +361,7 @@
 
 			$(".select2").select2();
 			loadselectdata();
-			$("#fmanager").val(null).trigger("change");
+			$("#manager").val(null).trigger("change");
 
 		});
 </script>

@@ -75,9 +75,9 @@ class GroupController extends Controller
         
 
         $rules = array(
-            'fname'       => 'required',
-            'fremark'     => 'required',
-            'femail'      => 'required'
+            'name'       => 'required|max:255|unique:groups',
+            'remark'     => 'required',
+            'email'      => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
@@ -88,18 +88,18 @@ class GroupController extends Controller
         } else {
 
         try {
-            $gid = Input::get('fid');
+            $gid = Input::get('id');
             if ( $gid  ) {
                 $group= Group::find($gid);
             } else {
                 $group = new Group;
                 
             };
-            $group->name       = Input::get('fname');
-            $group->remark     = Input::get('fremark');
-            $group->email      = Input::get('femail');
+            $group->name       = Input::get('name');
+            $group->remark     = Input::get('remark');
+            $group->email      = Input::get('email');
             //$user = \App\User::find(1) ;
-            $group->manager()->associate(Input::get('fmanager')  );
+            $group->manager()->associate(Input::get('manager')  );
             $group->save();
         } catch ( \Illuminate\Database\QueryException $e) {
             $response['status']="danger";

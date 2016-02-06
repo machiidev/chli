@@ -31,7 +31,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+	protected $username = 'login';
     /**
      * Create a new authentication controller instance.
      *
@@ -53,12 +53,13 @@ class AuthController extends Controller
         return Validator::make($data, [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
+            'login' => 'required|max:100|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
 
 	//----
-		public function authenticate(Request $request)
+		public function authenticatex(Request $request)
          {
          //pass through validation rules
          $this->validate($request, ['email' => 'required', 'password' => 'required']);
@@ -68,15 +69,22 @@ class AuthController extends Controller
              'email' => trim($request->get('email')),
              'password' => trim($request->get('password'))
          ];
+         $credentials2 = [
+             'login' => trim($request->get('email')),
+             'password' => trim($request->get('password'))
+         ];
 
 
-
-         //log in the user
-         if (Auth::attempt($credentials)) {
+         //log in the user with email adress
+         if ( (Auth::attempt($credentials)) || (Auth::attempt($credentials2))) {
          	  
              return redirect()->intended('/home');
          }
-
+         //log in the user with login
+         if (Auth::attempt($credentials2)) {
+         	  
+             return redirect()->intended('/home');
+         }
          //show error if invalid data entered
          return redirect()->back()->withErrors('Login/Pass do not match')->withInput();
      }

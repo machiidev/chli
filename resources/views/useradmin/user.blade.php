@@ -75,26 +75,26 @@
                                         <label>
                                             ID
                                         </label>
-                                        <input type="text" class="form-control" name="fid" id="fid" placeholder="Neu" readonly>
+                                        <input type="text" class="form-control" name="id" id="id" placeholder="Neu" readonly>
                                     </div>
                                     <div class="form-group has-primary">
                                         <label>
                                             Login
                                         </label>
-                                        <input required type="text" class="form-control" name="flogin" id="flogin" placeholder="Gruppename">
+                                        <input required type="text" class="form-control" name="login" id="login" placeholder="Gruppename">
                                     </div>
                                     <div class="form-group">
                                         <label>
                                             Name
                                         </label>
-                                        <input type="text"  minlength="7" class="form-control" name="fname" id="fname" placeholder="Beschreibung">
+                                        <input type="text"  minlength="7" class="form-control" name="name" id="name" placeholder="Beschreibung">
                                     </div>
                                     <div class="form-group">
                                         <label>
                                             Email address
                                         </label>
                                         <div class="controls">
-                                            <input required type="email" class="form-control" name="femail" id="femail" placeholder="Gruppen Email"
+                                            <input required type="email" class="form-control" name="email" id="email" placeholder="Gruppen Email"
                                             data-validation-matches-match="email" data-validation-matches-message="Must match email address entered above" >
 
                                         </div>
@@ -102,7 +102,7 @@
                                   
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="faktiv">Aktiv
+                                            <input type="checkbox" id="aktiv">Aktiv
                                         </label>
                                     </div>
                                 </div><!-- /.box-body -->
@@ -152,7 +152,7 @@
 				<p id="fehlermeldung"></p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-outline " data-dismiss="modal">Schlieﬂen</button>
+				<button type="button" class="btn btn-outline " data-dismiss="modal">Close</button>
 
 			</div>
 		</div><!-- /.modal-content -->
@@ -272,10 +272,10 @@
 					{
 						$(this).removeClass('active');
 
-						$('#fid').val( "");
-						$('#fname').val("");
-						$('#flogin').val( "");
-						$('#femail').val( "");
+						$('#id').val( "");
+						$('#name').val("");
+						$('#login').val( "");
+						$('#email').val( "");
 
 						
 						$('#fbtsave').html('Anlegen');
@@ -286,10 +286,10 @@
 						table.$('tr.active').removeClass('active');
 						$(this).addClass('active');
 
-						$('#fid').val( table.cell('.active', 0).data());
-						$('#flogin').val( table.cell('.active', 1).data());
-						$('#fname').val( table.cell('.active', 2).data());
-						$('#femail').val( table.cell('.active', 3).data());
+						$('#id').val( table.cell('.active', 0).data());
+						$('#login').val( table.cell('.active', 1).data());
+						$('#name').val( table.cell('.active', 2).data());
+						$('#email').val( table.cell('.active', 3).data());
 						
 						$('#fbtsave').html( 'Speichern');
 						$('#fbtdelete').show();
