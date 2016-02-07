@@ -3,8 +3,8 @@
 @extends('layouts.apptemplate')
 
 @section('head')
-<link rel="stylesheet" href="{{ URL::asset('assets/plugins/select2/select2.css') }}">
-</link>
+<link rel="stylesheet" href="{{ URL::asset('assets/plugins/select2/select2.css') }}"></link>
+<link rel="stylesheet" href="{{ URL::asset('assets/plugins/datatables/dataTables.bootstrap.css') }}"></link>
 @endsection
 
 

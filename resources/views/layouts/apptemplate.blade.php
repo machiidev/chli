@@ -123,12 +123,13 @@
 
         </nav>
       </header>
-      <!-- Left side column. contains the logo and sidebar -->
-		@include('include/mainmenu')
+      <!-- Left side column. contains the logo and sidebar-->
+		@include('include/mainmenu') 
 		
  <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+        <div id="fix-for-navbar-fixed-top-spacing" style="height: 47px;">&nbsp;</div>
         @include('include/contentheader')
 
         <!-- Main content -->
@@ -145,7 +146,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>
-        <strong>Copyright &copy; 2016 <a href="http://almsaeedstudio.com">mach.iidev</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2016 <a href="">mach.iidev</a>.</strong> All rights reserved.
       </footer>
 
 	<!-- mainsettingstab include -->
@@ -157,7 +158,7 @@
     <script src="{{ URL::asset('assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
-    <!-- FastClick 
+    <!-- FastClick -->
     <script src="assets/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="{{ URL::asset('assets/dist/js/app.min.js') }}"></script>
@@ -170,10 +171,7 @@
     <script src="{{ URL::asset('assets/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
     <!-- ChartJS 1.0.1 -->
     <script src="{{ URL::asset('assets/plugins/chartjs/Chart.min.js') }}"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) 
-    <script src="assets/dist/js/pages/dashboard2.js"></script>
-    <!-- AdminLTE for demo purposes 
-    <script src="assets/dist/js/demo.js"></script>-->
+   
     
      <script>
           $(document).ready(function() {
