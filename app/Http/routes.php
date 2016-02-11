@@ -26,6 +26,11 @@ Route::group(['middleware' => 'web'], function () {
         return View::make('welcome');
     });
 
+Route::get('/test', function()
+    {
+        return View::make('test');
+    });
+
 	// Benutzerverwaltung Routes
 	Route::get ('/useradmin/groups', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@index']);
 		Route::get ('/useradmin/users', ['middleware' => 'auth', 'uses' => 'Useradmin\UserController@index']);		
