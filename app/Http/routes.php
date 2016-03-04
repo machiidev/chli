@@ -25,11 +25,9 @@ Route::group(['middleware' => 'web'], function () {
     {
         return View::make('welcome');
     });
-
-Route::get('/test', function()
-    {
-        return View::make('test');
-    });
+	
+	// Dashboard Views
+	Route::get('/test', 'Dashboard\Topten@server');
 
 	// Benutzerverwaltung Routes
 	Route::get ('/useradmin/groups', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@index']);
