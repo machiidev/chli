@@ -19,6 +19,11 @@ Route::group(['middleware' => 'web'], function () {
 	// All Auth Routes for Login, etc
     Route::auth();
 
+	// Test Route
+    Route::get('/editor', 'test@editor');
+
+
+
 	// Homepage Route
     Route::get('/home', 'HomeController@index');
 	Route::get('/', function()

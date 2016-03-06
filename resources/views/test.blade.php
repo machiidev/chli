@@ -55,14 +55,22 @@
                       <th style="width: 150px">Task</th>
                       <th>Progress</th>
                       <th style="width: 40px">Label</th>
-                    </tr>{{ $i=1 }}
+                    </tr><?php $i = 1; ?>
                     @foreach ($entry as $ent)
                     <tr>
+                      <?php $farbe='normal';
+                      			if ( $ent->value > 80) {
+					  				$farbe='warning';
+					  			}
+                      			if ( $ent->value > 90) {
+					  				$farbe='danger';
+					  			} 
+					  ?>
                       <td>{{ $i++ }}</td>
                       <td>{{  $ent->server	}}</td>
                       <td>
                         <div class="progress progress-xs">
-                          <div class="progress-bar progress-bar-danger" style="width: {{  round($ent->value)	}}%"></div>
+                          <div class="progress-bar progress-bar-{{  $farbe	}}" style="width: {{  round($ent->value)	}}%"></div>
                         </div>
                       </td>
                       <td><span class="badge bg-red">{{  round($ent->value)	}}%</span></td>
