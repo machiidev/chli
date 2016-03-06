@@ -19,12 +19,20 @@ Route::group(['middleware' => 'web'], function () {
 	// All Auth Routes for Login, etc
     Route::auth();
 
+	// Test Route
+    Route::get('/editor', 'test@editor');
+
+
+
 	// Homepage Route
     Route::get('/home', 'HomeController@index');
 	Route::get('/', function()
     {
         return View::make('welcome');
     });
+	
+	// Dashboard Views
+	Route::get('/test', 'Dashboard\Topten@server');
 
 	// Benutzerverwaltung Routes
 	Route::get ('/useradmin/groups', ['middleware' => 'auth', 'uses' => 'Useradmin\GroupController@index']);

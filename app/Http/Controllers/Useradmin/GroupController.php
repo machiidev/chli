@@ -67,7 +67,8 @@ class GroupController extends Controller
     {
         //
 
-
+ 		$gid = Input::get('id');
+ 		
         $response = array(
             'status' => 'success',
             'msg' => 'OK!',
@@ -75,10 +76,17 @@ class GroupController extends Controller
         
 
         $rules = array(
-            'name'       => 'required|max:255|unique:groups',
+            
             'remark'     => 'required',
             'email'      => 'required'
         );
+        
+        if ( !$gid ) {
+        	$insertrules = array( 'name'       => 'required|max:255|unique:groups');
+			$rules=array_merge($rules, $insertrules);
+			
+		};
+        
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
@@ -88,7 +96,7 @@ class GroupController extends Controller
         } else {
 
         try {
-            $gid = Input::get('id');
+           
             if ( $gid  ) {
                 $group= Group::find($gid);
             } else {
@@ -105,7 +113,7 @@ class GroupController extends Controller
             $response['status']="danger";
             $response['msg']="Database error: " . $e->getMessage();
             return response()->json($response);
-        }
+        };
             //return Response::json( $response );
 
             return response()->json($response);
@@ -127,10 +135,7 @@ class GroupController extends Controller
         $users= User::all();
         foreach ($users as $user) {
 			$datar[] = array('id' => $user->id, 'text' => $user->name);	
-		}
-        
-        
-         
+		}       
         return (json_encode($datar));
     }
 

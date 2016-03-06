@@ -35,7 +35,7 @@
           <ul class="sidebar-menu">
           	<li class="header">MAIN NAVIGATION</li>
           	<li class="treeview">
-              <a href="/">
+              <a href="/test">
                 <i class="fa fa-dashboard"></i> <span>Start</span> 
                 <span class="label label-danger pull-right">4</span>
               </a>
