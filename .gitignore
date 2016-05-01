@@ -1,6 +1,10 @@
 vendor/
 node_modules/
 
+#IDE specific
+Checklist.clpprj
+
+
 # Laravel 4 specific
 bootstrap/compiled.php
 app/storage/
