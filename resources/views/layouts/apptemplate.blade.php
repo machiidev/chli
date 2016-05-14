@@ -155,7 +155,7 @@
     </div><!-- ./wrapper -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="{{ URL::asset('assets/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+    <script src="{{ URL::asset('assets/plugins/jQuery/jQuery-2.2.0.min.js') }}"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="{{ URL::asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
